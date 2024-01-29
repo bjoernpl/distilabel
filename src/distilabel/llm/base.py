@@ -37,6 +37,7 @@ import multiprocess as mp
 
 from distilabel.llm.utils import LLMOutput
 from distilabel.logger import get_logger
+from distilabel.step import Step
 from distilabel.tasks.prompt import Prompt
 from distilabel.utils.futures import when_all_complete
 
@@ -47,7 +48,7 @@ if TYPE_CHECKING:
 logger = get_logger()
 
 
-class LLM(ABC):
+class LLM(ABC, Step):
     def __init__(
         self,
         task: Task,
